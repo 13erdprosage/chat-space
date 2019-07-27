@@ -1,14 +1,15 @@
 # README
 
+
 # Database設計
 
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|email|varchar|null: false, unique: true|
+|email|string|null: false, unique: true|
 |password|string|null: false|
-|nickname|varchar|null: false|
+|nickname|string|null: false|
 
 ### Association
 - has_many: comments
@@ -19,7 +20,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|varchar|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many: comments
