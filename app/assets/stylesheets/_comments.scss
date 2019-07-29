@@ -1,0 +1,134 @@
+@import "./valiable";
+
+.header {
+  background-color: #38AEF0;
+  width: 100%;
+  height: 22px;
+  &--log{
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.contents {
+  display: flex;
+  // float: left;
+  &__sidebar {
+    color: #fff;
+    width: 300px;
+    font-weight: bold;
+    &__top {
+      height: 100px;
+      background-color: #253141;
+      &--user_name {
+        font-size: 16px;
+        padding-left: 20px;
+        float: left;
+        line-height: 100px;
+      }
+      &--icon {
+        line-height: 100px;
+        padding-right: 20px;
+        float: right;
+      }
+    }
+    &__bottom {
+      height: calc(100vh - 100px - 22px);
+      background-color: #2f3e51;
+      &__group {
+        padding: 20px;
+        &--group_name{
+          font-size: 15px;
+          padding-bottom: 5px;
+        }
+        &--comment{
+          font-size: 11px;
+        }
+      }
+    }
+  }
+  &__main {
+    width: calc(100vw - 300px);
+    &__top {
+      border-bottom: 1px solid;
+      border-color: #eeeeee;
+      height: 100px;
+      &--group_name {
+        padding: 35px 40px 0;
+        float: left;
+        padding-top: 35px;
+        font-size: 20px;
+        color: #333333;
+      }
+      &--btn {
+        float: right;
+        color: #38AEF0;
+        border: 1px solid;
+        height: 40px;
+        padding: 0 20px;
+        line-height: 40px;
+        margin: 28px 40px 0;
+      }
+      &--member {
+        padding: 0 40px;
+        clear: both;
+        font-size: 12px;
+        color: #999999;
+        padding-top: 15px;
+      }
+    }
+    &__log {
+      background-color: #fafafa;
+      height: calc(100% - 100px - 100px);
+      padding: 6px 40px 0 ;
+      &--user_name {
+        font-size: 16px;
+        font-weight: bold;
+        color: #434A54;
+        padding-top: 40px;
+        padding-right: 10px;
+        float:left
+      }
+      &--time {
+        font-size: 12px;
+        color: #999999;
+        padding-top: 40px;
+      }
+      &--comment {
+        clear: both;
+        padding-top: 10px;
+        font-size: 14px;
+        color: #434A54;
+      }
+    }
+    &__bottom {
+      height: 93px;
+      background-color: #ddd;
+      display: flex;
+      &--form {
+        padding-left: 40px;
+        float: left;
+        position: relative;
+        %textarea.message {
+          color: red;
+          height: 50px; //高さが変わらない
+        }
+      }
+      &--icon {
+      }
+      &--btn {
+        line-height: 50px;
+        // margin: auto 40px auto 15px;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        // padding: 0 30px;
+        margin-left: 15px;
+        background-color: #38aef0;
+        float: right;
+        color: #fff;
+      }
+    }
+  }
+}
