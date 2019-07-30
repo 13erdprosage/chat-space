@@ -33,7 +33,8 @@
         comment
     .contents__main__bottom
       .contents__main__bottom--form
-        %textarea.message
-      .contents__main__bottom--icon
+        %input.message{placeholder: 'type a message'}
+        .contents__main__bottom--form--icon
+          =fa_icon 'image'
       .contents__main__bottom--btn
         Send
