@@ -35,6 +35,18 @@
       .contents__main__bottom--form
         %input.message{placeholder: 'type a message'}
         .contents__main__bottom--form--icon
-          =fa_icon 'image'
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+              %input.image-label__input(name="image" id="upload-icon" type="file")
       .contents__main__bottom--btn
         Send
+
+
+-# model実装したら使う
+        -# = form_for[@file_field, @label] do |f|
+        -#     %f.label.upload-label{for: "upload-icon"}
+        -#       %i.fa.fa-picture-o
+        -#       = f.file_field :image, id: "upload-icon"
+
+
+                       file_field :image, id: "upload-icon"
