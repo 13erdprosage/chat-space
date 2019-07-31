@@ -1,0 +1,49 @@
+.header
+  .header--log
+    グループを作成しました
+
+.contents
+  .contents__sidebar
+    .contents__sidebar__top
+      .contents__sidebar__top--user_name
+        user_name
+      .contents__sidebar__top--icon
+        = fa_icon 'edit'
+        = fa_icon 'cog'
+    .contents__sidebar__bottom
+      .contents__sidebar__bottom__group
+        .contents__sidebar__bottom__group--group_name
+          group_name
+        .contents__sidebar__bottom__group--comment
+          comment
+  .contents__main
+    .contents__main__top
+      .contents__main__top--group_name
+        group_name
+      .contents__main__top--btn
+        Edit
+      .contents__main__top--member
+        member
+    .contents__main__log
+      .contents__main__log--user_name
+        user_name
+      .contents__main__log--time
+        time
+      .contents__main__log--comment
+        comment
+    .contents__main__bottom
+      .contents__main__bottom--form
+        %input.message{placeholder: 'type a message'}
+        .contents__main__bottom--form--icon
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+              %input.image-label__input(name="image" id="upload-icon" type="file")
+      .contents__main__bottom--btn
+        Send
+
+
+-# model実装したら使う
+        -# = form_for[@file_field, @label] do |f|
+        -#     %f.label.upload-label{for: "upload-icon"}
+        -#       %i.fa.fa-picture-o
+        -#       = f.file_field :image, id: "upload-icon"
