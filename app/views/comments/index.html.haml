@@ -6,10 +6,12 @@
   .contents__sidebar
     .contents__sidebar__top
       .contents__sidebar__top--user_name
-        user_name
+        = current_user.name
       .contents__sidebar__top--icon
-        = fa_icon 'edit'
-        = fa_icon 'cog'
+        = link_to do
+          = fa_icon 'edit'
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog'
     .contents__sidebar__bottom
       .contents__sidebar__bottom__group
         .contents__sidebar__bottom__group--group_name

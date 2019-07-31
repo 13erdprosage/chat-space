@@ -1,0 +1,15 @@
+@import "./valiable";
+
+.notification {
+  .notice {
+    background-color: $blue;
+    color: $pure_white;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $pure_white;
+    text-align: center;
+  }
+}
