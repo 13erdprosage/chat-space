@@ -13,11 +13,13 @@
         = link_to edit_user_path(current_user) do
           = fa_icon 'cog'
     .contents__sidebar__bottom
-      .contents__sidebar__bottom__group
-        .contents__sidebar__bottom__group--group_name
-          group_name
-        .contents__sidebar__bottom__group--comment
-          comment
+      - current_user.groups.each do |group|
+        .contents__sidebar__bottom__group
+          = link_to group_comments_path(group) do
+            .contents__sidebar__bottom__group--group_name
+              = group.name
+            .contents__sidebar__bottom__group--comment
+              メッセージはまだありません。
   .contents__main
     .contents__main__top
       .contents__main__top--group_name
