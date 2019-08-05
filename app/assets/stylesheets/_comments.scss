@@ -111,34 +111,35 @@
         padding-left: 40px;
         padding-top: 20px;
         float: left;
-        width: calc(100% - 105px - 100px);
+        width: calc(100% - 40px);
         position: relative;
-        .message {
-          width: 100%;
+        .form__message {
+          width: calc(100% - 67px - 100px);
           height: 50px;
           padding-left: 10px;
         }
         &--icon {
           position: absolute;
           top: 30px;
-          right: 0px;
-          font-size: 1.3rem;
-          .upload-label {
-            #upload-icon {
+          right: 165px;
+          .upload-icon {
+            font-size: 1.3rem;
+            .hidden {
               display:none;
             }
           }
         }
-      }
-      &--btn {
-        line-height: 50px;
-        width: 100px;
-        height: 50px;
-        text-align: center;
-        margin: 21px 40px 0 15px;
-        background-color: $blue;
-        float: right;
-        color: $pure_white;
+        .form__submit {
+          position: absolute;
+          width: 100px;
+          margin-right: 40px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          background-color: $blue;
+          color: $pure_white;
+          right: 0px;
+        }
       }
     }
   }
