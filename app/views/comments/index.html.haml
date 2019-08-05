@@ -23,11 +23,13 @@
   .contents__main
     .contents__main__top
       .contents__main__top--group_name
-        group_name
+        = @group.name
       .contents__main__top--btn
         Edit
       .contents__main__top--member
-        member
+        Member :
+        - @group.users.each do |member|
+          #{member.name}
     .contents__main__log
       = render @comments
 
