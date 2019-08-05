@@ -19,35 +19,36 @@
             .contents__sidebar__bottom__group--group_name
               = group.name
             .contents__sidebar__bottom__group--comment
-              メッセージはまだありません。
+              = group.show_last_comment
   .contents__main
     .contents__main__top
       .contents__main__top--group_name
-        group_name
+        = @group.name
       .contents__main__top--btn
         Edit
       .contents__main__top--member
-        member
+        Member :
+        - @group.users.each do |member|
+          #{member.name}
     .contents__main__log
-      .contents__main__log--user_name
-        user_name
-      .contents__main__log--time
-        time
-      .contents__main__log--comment
-        comment
+      = render @comments
+
     .contents__main__bottom
       .contents__main__bottom--form
-        %input.message{placeholder: 'type a message'}
-        .contents__main__bottom--form--icon
-          %label.upload-label{for: "upload-icon"}
-            %i.fa.fa-picture-o
-              %input.image-label__input(name="image" id="upload-icon" type="file")
-      .contents__main__bottom--btn
-        Send
+        = form_for [@group, @comment] do |f|
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .contents__main__bottom--form--icon
+            = f.label :image, class: 'upload-icon' do
+              -# = fa_icon 'piture-o', class: 'upload-icon'
+              %i.fa.fa-picture-o.upload-icon
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'form__submit'
 
-
--# model実装したら使う
-        -# = form_for[@file_field, @label] do |f|
-        -#     %f.label.upload-label{for: "upload-icon"}
-        -#       %i.fa.fa-picture-o
-        -#       = f.file_field :image, id: "upload-icon"
+      -# .contents__main__bottom--form
+      -#   %input.message{placeholder: 'type a message'}
+      -#   .contents__main__bottom--form--icon
+      -#     %label.upload-label{for: "upload-icon"}
+      -#       %i.fa.fa-picture-o
+      -#         %input.image-label__input(name="image" id="upload-icon" type="file")
+      -# .contents__main__bottom--btn
+      -#   Send
