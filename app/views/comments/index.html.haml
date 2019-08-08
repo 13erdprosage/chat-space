@@ -39,7 +39,6 @@
           = f.text_field :content, class: 'form__message', placeholder: 'type a message'
           .contents__main__bottom--form--icon
             = f.label :image, class: 'upload-icon' do
-              -# = fa_icon 'piture-o', class: 'upload-icon'
               %i.fa.fa-picture-o.upload-icon
               = f.file_field :image, class: 'hidden'
           = f.submit 'Send', class: 'form__submit'
