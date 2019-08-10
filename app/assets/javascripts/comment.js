@@ -1,6 +1,15 @@
 $(function() {
   function buildHTML(comment){
-    console.log(comment)
+    function content() {
+      if (comment.text !== null && comment.image !== null) {
+        return comment.text
+        return comment.image
+      } else if (comment.text !== null && comment.image == null) {
+        return comment.text
+      } else if (comment.text == null && comment.image !== null) {
+        return comment.image
+      };
+    }
       var html = `<div class="contents__main__log">
                     <div class="contents__main__log--user_name">
                       ${comment.user_name}
@@ -9,13 +18,10 @@ $(function() {
                       ${comment.date}
                     </div>
                     <div class="contents__main__log--comment">
-                      ${comment.text}
+                      ${content()}
                     </div>
                   </div>`;
       return html;
-  }
-  function scroll() {
-    $('.contents__main__logs').animate({scrollTop: $('.contents__main__log')[0].scrollHeight});
   }
   $(".new_comment").on('submit', function(e) {
     e.preventDefault();
@@ -34,7 +40,11 @@ $(function() {
       $('.contents__main__logs').append(html);
       $('.form__message').val('');
       $('.form__submit').prop('disabled', false);
-      scroll();
+      $('.contents__main__logs').animate({scrollTop: $('.contents__main__log').offset().bottom});
+    })
+    .fail(function() {
+      alert('error')
+      $('.form__submit').prop('disabled', false);
     })
   });
 });
