@@ -1,27 +1,23 @@
 $(function() {
   function buildHTML(comment){
-    function content() {
-      if (comment.text !== null && comment.image !== null) {
-        return comment.text
-        return comment.image
-      } else if (comment.text !== null && comment.image == null) {
-        return comment.text
-      } else if (comment.text == null && comment.image !== null) {
-        return comment.image
-      };
-    }
-      var html = `<div class="contents__main__log">
-                    <div class="contents__main__log--user_name">
-                      ${comment.user_name}
-                    </div>
-                    <div class="contents__main__log--time">
-                      ${comment.date}
-                    </div>
-                    <div class="contents__main__log--comment">
-                      ${content()}
-                    </div>
-                  </div>`;
-      return html;
+    if (comment.image !== null) {
+      var i = "<img src =" + comment.image + ">"
+    } else {
+      var i = ""
+    };
+    var html = `<div class="contents__main__log">
+                  <div class="contents__main__log--user_name">
+                    ${comment.user_name}
+                  </div>
+                  <div class="contents__main__log--time">
+                    ${comment.date}
+                  </div>
+                  <div class="contents__main__log--comment">
+                    ${comment.text}
+                    ${i}
+                  </div>
+                </div>`;
+    return html;
   }
   $(".new_comment").on('submit', function(e) {
     e.preventDefault();
@@ -39,6 +35,7 @@ $(function() {
       var html = buildHTML(data);
       $('.contents__main__logs').append(html);
       $('.form__message').val('');
+      $('.hidden').val('');
       $('.form__submit').prop('disabled', false);
       $('.contents__main__logs').animate({scrollTop: $('.contents__main__logs')[0].scrollHeight}, 'fast');
     })

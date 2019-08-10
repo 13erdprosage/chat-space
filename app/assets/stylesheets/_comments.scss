@@ -69,6 +69,7 @@
       background-color: #fafafa;
       padding: 6px 40px 0;
       height: calc(100vh - 100px - 100px);
+      overflow: scroll;
       .contents__main__log {
         &--user_name {
           font-size: 16px;
@@ -93,7 +94,6 @@
     }
     &__bottom {
       display: block;
-      // position:fixed;
       height: 93px;
       background-color: #ddd;
       width: calc(100vw - 300px);
