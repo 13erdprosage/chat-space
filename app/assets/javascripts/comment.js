@@ -1,6 +1,7 @@
 $(function() {
   function buildHTML(comment){
-      var html = `<div class="comments__main__log">
+    console.log(comment)
+      var html = `<div class="contents__main__log">
                     <div class="contents__main__log--user_name">
                       ${comment.user_name}
                     </div>
@@ -8,10 +9,13 @@ $(function() {
                       ${comment.date}
                     </div>
                     <div class="contents__main__log--comment">
-                      ${comment.content}
+                      ${comment.text}
                     </div>
                   </div>`;
       return html;
+  }
+  function scroll() {
+    $('.contents__main__logs').animate({scrollTop: $('.contents__main__log')[0].scrollHeight});
   }
   $(".new_comment").on('submit', function(e) {
     e.preventDefault();
@@ -27,8 +31,10 @@ $(function() {
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.comments__main__log').append(html)
-      $('.contents__main__log--comment').val('')
+      $('.contents__main__logs').append(html);
+      $('.form__message').val('');
+      $('.form__submit').prop('disabled', false);
+      scroll();
     })
   });
 });
