@@ -93,13 +93,13 @@
     }
     &__bottom {
       display: block;
+      // position:fixed;
       height: 93px;
       background-color: #ddd;
       width: calc(100vw - 300px);
       &--form {
         padding-left: 40px;
         padding-top: 20px;
-        // width: calc(100% - 40px - 100px);
         position: relative;
         .form__message {
           width: calc(100% - 165px);

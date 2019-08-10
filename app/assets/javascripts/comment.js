@@ -40,7 +40,7 @@ $(function() {
       $('.contents__main__logs').append(html);
       $('.form__message').val('');
       $('.form__submit').prop('disabled', false);
-      $('.contents__main__logs').animate({scrollTop: $('.contents__main__log').offset().bottom});
+      $('.contents__main__logs').animate({scrollTop: $('.contents__main__logs')[0].scrollHeight}, 'fast');
     })
     .fail(function() {
       alert('error')
