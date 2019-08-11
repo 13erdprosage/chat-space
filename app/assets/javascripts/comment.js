@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(comment){
-    var i = comment.image ? i = `<img src =` + comment.image + `>` : "";
+    var i = comment.image ? `<img src =` + comment.image + `>` : "";
     var html = `<div class="contents__main__log">
                   <div class="contents__main__log--user_name">
                     ${comment.user_name}
