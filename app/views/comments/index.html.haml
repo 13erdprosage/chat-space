@@ -21,7 +21,7 @@
       .contents__main__top--group_name
         = @group.name
       .contents__main__top--btn
-        Edit
+        = link_to "Edit", edit_group_path(@group)
       .contents__main__top--member
         Member :
         - @group.users.each do |member|
