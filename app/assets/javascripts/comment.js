@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(comment){
-    comment.image ? var i = "<img src =" + comment.image + ">" : var i = "";
+    var i = comment.image ? i = `<img src =` + comment.image + `>` : "";
     var html = `<div class="contents__main__log">
                   <div class="contents__main__log--user_name">
                     ${comment.user_name}
@@ -30,8 +30,7 @@ $(function() {
     .done(function(data){
       var html = buildHTML(data);
       $('.contents__main__logs').append(html);
-      $('.form__message').reset();
-      $('.hidden').reset();
+      $('.new_comment')[0].reset();
       $('.form__submit').prop('disabled', false);
       $('.contents__main__logs').animate({scrollTop: $('.contents__main__logs')[0].scrollHeight}, 'fast');
     })
