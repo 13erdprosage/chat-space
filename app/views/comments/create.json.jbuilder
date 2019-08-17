@@ -1,4 +1,4 @@
-json.text       @comment.content
-json.date       @comment.created_at.strftime("%Y/%m/%d %H:%M")
-json.user_name  @comment.user.name
-json.image      @comment.image.url
+json.(@comment, :content, :image)
+json.created_at @comment.created_at
+json.user_name @comment.user.name
+json.id @comment.id
