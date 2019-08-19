@@ -1,15 +1,15 @@
 $(function() {
   function buildHTML(comment){
-    var i = comment.image ? `<img src =` + comment.image + `>` : "";
+    var i = comment.image ? `<img src= ${comment.image} >` : "";
     var html = `<div class="contents__main__log" data-comment-id="${comment.id}">
                   <div class="contents__main__log--user_name">
                     ${comment.user_name}
                   </div>
                   <div class="contents__main__log--time">
-                    ${comment.date}
+                    ${comment.created_at}
                   </div>
                   <div class="contents__main__log--comment">
-                    ${comment.text}
+                    ${comment.content}
                     ${i}
                   </div>
                 </div>`;
@@ -42,15 +42,18 @@ $(function() {
 
   var reloadComments = function() {
     if (window.location.href.match(/\/groups\/\d+\/comments/)){
-      var last_comment_id = $('.contents__main__log:last').data("data-comment-id");
+      var last_comment_id = $('.contents__main__log:last').data('comment-id');
+      console.log(last_comment_id);
+
       $.ajax({
         url: "api/comments",
         type: 'get',
         dataType: 'json',
-        data: {id: last_comment_id} //id取れてない
+        data: {last_id: last_comment_id} //id取れてない
       })
-      .done(function(comments) {    
+      .done(function(comments) {   
         console.log(comments);
+ 
         var insertHTML = '';
         comments.forEach(function (comment) {
           insertHTML = buildHTML(comment);
@@ -63,5 +66,5 @@ $(function() {
       });
     }
   };
-  // setInterval(reloadComments, 5000);
+  setInterval(reloadComments, 5000);
 });
