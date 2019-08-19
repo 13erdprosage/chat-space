@@ -43,17 +43,13 @@ $(function() {
   var reloadComments = function() {
     if (window.location.href.match(/\/groups\/\d+\/comments/)){
       var last_comment_id = $('.contents__main__log:last').data('comment-id');
-      console.log(last_comment_id);
-
       $.ajax({
         url: "api/comments",
         type: 'get',
         dataType: 'json',
-        data: {last_id: last_comment_id} //id取れてない
+        data: {last_id: last_comment_id}
       })
-      .done(function(comments) {   
-        console.log(comments);
- 
+      .done(function(comments) {    
         var insertHTML = '';
         comments.forEach(function (comment) {
           insertHTML = buildHTML(comment);
