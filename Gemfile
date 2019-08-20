@@ -67,6 +67,7 @@ gem 'factory_bot_rails'
 gem 'rspec-rails', '~> 3.5'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn', '5.4.1'
