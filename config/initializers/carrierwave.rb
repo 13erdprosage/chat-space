@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory = 'uploadingimg-to-s3-for-chatspace'
-  config.asset_host = 'https://s3-ap-northeast-1).amazonaws.com/uploadingimg-to-s3-for-chatspace'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/uploadingimg-to-s3-for-chatspace'
 end
