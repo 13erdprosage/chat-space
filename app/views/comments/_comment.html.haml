@@ -6,4 +6,5 @@
   .contents__main__log--comment
     - if comment.content.present?
       = comment.content
+    %br
     = image_tag comment.image.url, class: 'contents__main__log--comment__image' if comment.image.present?
