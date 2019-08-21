@@ -15,7 +15,7 @@ $(function() {
     search_list.append(html);
   }
 
-  var member_list = $("#chat-group-users");
+  var member_list = $(".chat-group-users");
 
   function addUser(userId,userName) {
   var html = `<div id='chat-group-users'>
@@ -51,7 +51,7 @@ $(function() {
     })
   });
   $(document).on("click", ".user-search-add", function () {
-    $('#chat-group-users').val();
+    $('chat-group-users').val();
     var userId = $(this).data('user-id');
     var userName = $(this).data('user-name');
     addUser(userId,userName);
