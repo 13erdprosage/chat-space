@@ -1,3 +1,11 @@
+body{
+  a:visited { color:white; text-decoration:none; }
+}
+
+a {
+  text-decoration: none;
+}
+
 .contents {
   display: flex;
   width:100%;
@@ -23,6 +31,7 @@
     &__bottom {
       height: calc(100vh - 100px);
       background-color: #2f3e51;
+      color: $pure-white;
       &__group {
         padding: 20px;
         &--group_name{
@@ -49,9 +58,10 @@
         color: #333333;
       }
       &--btn {
+        a:visited { color: $blue; text-decoration: none; }
         float: right;
-        color: $blue;
         border: 1px solid;
+        border-color: $blue;
         height: 40px;
         padding: 0 20px;
         line-height: 40px;
