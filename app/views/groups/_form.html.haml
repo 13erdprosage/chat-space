@@ -28,12 +28,13 @@
           .js-chat-member{id: current_user.id}
             = f.hidden_field :user_ids, value: current_user.id, name: "group[user_ids][]"
             %p.chat-group-user__name= current_user.name
+            
 
-          - group.users.where.not(id: current_user.id).each do |user|
-            .chat-group-user.clearfix.js-chat-member{id: user.id}
+        - group.users.where.not(id: current_user.id).each do |user|
+          .chat-group-user.clearfix.js-chat-member{id: user.id}
             = f.hidden_field :user_ids, value: user.id, name: "group[user_ids][]"
             %p.chat-group-user__name= user.name
-            %a.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
+            %a.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn.user-search-remove 削除
 
 
 
@@ -41,18 +42,3 @@
     .chat-group-form__field--left
     .chat-group-form__field--right
       = f.submit class: 'chat-group-form__action-btn',value:'登録する'
-
-
--# .js-chat-member{id: current_user.id}
--# = f.hidden_field :user_ids, value: current_user.id, name: "group[user_ids][]"
--# %p.chat-group-user__name= current_user.name
--# - group.users.where.not(id: current_user.id).each do |user|
--# .chat-group-user.clearfix.js-chat-member{id: user.id}
--# = f.hidden_field :user_ids, value: user.id, name: "group[user_ids][]"
--# %p.chat-group-user__name= user.name
--# %a.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
-
-
--# group.users.where.not(id: current_user.id).each do |user|
--#   .chat-group-user.clearfix.js-chat-member{id: user.id}
--#     = f.hidden_field :user_ids, value: user.id, name: "group[user_ids][]"
